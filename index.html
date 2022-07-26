@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background-image: url("img/photo.jpg");
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 2;
+    }
+    
+    #overlay {
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        cursor: pointer;
+    }
+    
+    #calculator-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+    }
+    
+    #grid {
+        display: grid;
+        padding: 25px;
+        grid-template-columns: repeat(4, 60px);
+        box-shadow: inset 5px 5px 12px rgb(232, 214, 229), inset 5px 5px 12px black;
+        height: 350px;
+        width: 300px;
+        border: none;
+        border-radius: 35px;
+        background-color: rgb(216, 140, 191);
+    }
+    
+    #input {
+        grid-column: span 4;
+        margin: 20px;
+        border: none;
+        box-shadow: inset 5px 5px 12px rgb(234, 182, 220), inset 5px 5px 12px black;
+        text-align: end;
+        height: 50px;
+        border-radius: 20px;
+        outline: none;
+        padding-right: 10px;
+        color: rgb(62, 54, 54);
+        background-color: rgb(247, 224, 244);
+    }
+    
+    button {
+        padding: 10px;
+        box-shadow: inset -5px -5px 12px rgb(239, 141, 192), inset 5px 5px 12px rgb(64, 63, 63);
+        border-radius: 25px;
+        outline: none;
+        background-color: rgb(251, 157, 212);
+        border: none;
+        margin: 3px;
+        color: rgb(77, 72, 72)
+    }
+    
+    button:hover {
+        background-color: rgb(249, 231, 234);
+    }
+    
+    h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+        color: white;
+        text-decoration: underline 1px solid white;
+        font-family: Cursive;
+    }
+</style>
+
+<body>
+    <h1>Mini Calculator</h1>
+    <div id="calculator-box">
+        <div id="grid">
+            <input type="text" placeholder="0" id="input">
+            <button onClick="play('9')">9</button>
+            <button onClick="play('8')">8</button>
+            <button onClick="zero()">CE</button>
+            <button onClick="del()">DEL</button>
+            <button onClick="play('7')">7</button>
+            <button onClick="play('6')">6</button>
+            <button onClick="play('/')">/</button>
+            <button onClick="play('+')">+</button>
+            <button onClick="play('5')">5</button>
+            <button onClick="play('4')">4</button>
+            <button onClick="play('.')">.</button>
+            <button onClick="play('-')">-</button>
+            <button onClick="play('3')">3</button>
+            <button onClick="play('2')">2</button>
+            <button onClick="answer('=')">=</button>
+            <button onClick="play('*')">*</button>
+            <button onClick="play('1')">1</button>
+            <button onClick="play('0')">0</button>
+            <button onClick="play('00')">00</button>
+        </div>
+    </div>
+</body>
+<script>
+    var input = document.getElementById("input")
+
+    function play(display) {
+        input.value += display
+    }
+
+    function answer() {
+        true;
+        if (true) {
+            input.value = eval(input.value)
+
+        } else {
+            input.value = ""
+        }
+    }
+
+    function zero() {
+        input.value = ''
+    }
+
+    function del() {
+        input.value = input.value.slice(0, -1)
+    }
+</script>
+
+</html>
